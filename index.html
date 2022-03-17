@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculo de perda por máquina</title>
+</head>
+<body>
+    <div style="width: 50%; height: 60%;">
+        <h1>Calculo de perda de lucro.</h1>
+    </div>
+    Aqui será calculado sua perda baseando por quanto sua maquina faz, quantas maquinas estão em manuntenção. <br>
+    O resultado é exibido em um valor numerico e em forma de porcentagem, essa baseada no seu lucro. <br>
+    <br>
+    quanto que sua máquina faz por min<input id="quant_min"> <br>
+minutos que a máquina fica parada <input id="hrs_input"> <br>
+maquinas paradas <input id="maq_parada"> <br>
+<br>
+<button onclick="total_perda()">calculo de perda</button>
+<div id="mostrar_frase" style="color: rgb(49, 111, 150);"></div>
+<div id="teste"></div>
+</body>
+</html>
+<script>
+        function total_perda(){
+    var n1= Number(hrs_input.value)
+    var n2= Number(maq_parada.value)
+    var n3= Number(quant_min.value)
+
+    var maq_min= n1 * n3
+    var perca_dinheiro= maq_min * n2
+
+    var lucro_dia= maq_min * 1440
+    var porcentagem= (perca_dinheiro * 100) / lucro_dia
+
+    mostrar_frase.innerHTML= `você perdeu cerca de R$${perca_dinheiro} que equivale a ${porcentagem.toFixed(2)}% do dia.` 
+}
+</script>
